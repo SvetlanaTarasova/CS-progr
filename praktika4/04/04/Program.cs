@@ -1,12 +1,21 @@
-﻿using System;
+﻿using System.Globalization;
+using System.Collections;
+using System.Collections.Specialized;
+using System;
 
-namespace _04
+class Program
 {
-  class Program
+  static void Main(string[] args)
   {
-    static void Main(string[] args)
-    {
-      Console.WriteLine("Hello World!");
-    }
+    // Создать Словарь, нечувствительный к регистру 
+    ListDictionary list = new ListDictionary(new CaseInsensitiveComparer(CultureInfo.InvariantCulture));
+    // Добавить несколько элементов
+    list["Estados Unidos"] = "United States of America";
+    list["Canada"] = "Canada";
+    list["Espana"] = "Spain";
+    //  Показать результаты
+    Console.WriteLine(list["espana"]);
+    Console.WriteLine(list["CANADA"]);
+    Console.Read();
   }
 }
